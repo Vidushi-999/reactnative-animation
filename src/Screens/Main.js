@@ -5,8 +5,8 @@ import styles from '../Styles/styles';
 
 
 const MainFile=(props)=>{
-       const data=[{title:"Fade Animation"},{title:"Spin Animation"},{title:"Scale Animation"},{title:"Spring Animation"},{title:"Parallel Animation"},{title:"Sequence Animation"}]
- const onAnimationClick=(index)=>{
+       const Data=[{title:"Fade Animation"},{title:"Spin Animation"},{title:"Scale Animation"},{title:"Spring Animation"},{title:"Parallel Animation"},{title:"Sequence Animation"}]
+ const OnAnimationClick=(index)=>{
      if(index==0)
      {
          props.navigation.navigate('FadeAnimation')
@@ -41,7 +41,7 @@ const MainFile=(props)=>{
     
      return(
          <View>
-             <TouchableOpacity  onPress={()=>onAnimationClick(item.index)}>
+             <TouchableOpacity  onPress={()=>OnAnimationClick(item.index)}>
              <Text style={styles.smallheading}>{item.item.title}</Text>
              </TouchableOpacity>
          </View>
@@ -53,7 +53,7 @@ const MainFile=(props)=>{
 <Text style={[styles.textheading,{marginTop:60}]}>List of Animations :</Text>
 
 <FlatList
-data={data}
+data={Data}
 renderItem={renderItems}
 />
   </View>

@@ -5,16 +5,16 @@ import styles from '../Styles/styles';
 
 
 const ScaleAnimation=()=>{
- const scale= new Animated.Value(0)
- const scalevalue = scale.interpolate({
+ const Scale= new Animated.Value(0)
+ const ScaleValue = Scale.interpolate({
     inputRange: [0,1],
     outputRange: [1, 2]
   });
 
 
  useEffect(()=>{
-    Animated.timing(scale,{toValue:1,duration:3000,useNativeDriver:true}).start()
- },[scale])
+    Animated.timing(Scale,{toValue:1,duration:3000,useNativeDriver:true}).start()
+ },[Scale])
    return(
      
  <View style={styles.container}>
@@ -22,7 +22,7 @@ const ScaleAnimation=()=>{
          <Text style={[styles.smallheading,{marginBottom:15}]}>Scale Animation</Text>
    
    <Animated.Image
-   style={{height:100,width:130,transform:[{scale:scalevalue}]}}
+   style={{height:100,width:130,transform:[{scale:ScaleValue}]}}
    source={{uri:"https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&w=1000&q=80"}}
    >
 

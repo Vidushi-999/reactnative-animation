@@ -5,31 +5,31 @@ import styles from '../Styles/styles';
 
 
 const ParallelAnimation=()=>{
- const scale= new Animated.Value(0)
+ const Scale= new Animated.Value(0)
 
- const scalevalue = scale.interpolate({
+ const ScaleValue = Scale.interpolate({
     inputRange: [0,1],
     outputRange: [-3, 2]
   });
-  const spin=new Animated.Value(0)
-  const spinvalue = spin.interpolate({
+  const Spin=new Animated.Value(0)
+  const SpinValue = Spin.interpolate({
     inputRange: [0,1],
     outputRange: ["0deg", "360deg"]
   });
 
-  const springval=new Animated.Value(1)
+  const SpringVal=new Animated.Value(1)
 
 
 
  useEffect(()=>{
      Animated.parallel(
           [
-              Animated.timing(scale,{toValue:1,duration:3000,useNativeDriver:true}), //scaling
-              Animated.spring(springval,{toValue:2,friction:1,tension:0.5,useNativeDriver: true }),    //spring
-              Animated.timing(spin,{toValue:1,duration:3000,useNativeDriver:true})  //spin
+              Animated.timing(Scale,{toValue:1,duration:3000,useNativeDriver:true}), //scaling
+              Animated.spring(SpringVal,{toValue:2,friction:1,tension:0.5,useNativeDriver: true }),    //spring
+              Animated.timing(Spin,{toValue:1,duration:3000,useNativeDriver:true})  //spin
             ])
    .start()
- },[scale])
+ },[Scale,SpringVal,Spin])
    return(
      
  <View style={styles.container}>
@@ -37,17 +37,17 @@ const ParallelAnimation=()=>{
          <Text style={styles.smallheading}>Parallel Animation</Text>
    
    <Animated.View
-   style={{height:50,width:80,backgroundColor:'red',transform:[{scaleX:scalevalue}]}}
+   style={{height:50,width:80,backgroundColor:'red',transform:[{scaleX:ScaleValue}]}}
    >
    </Animated.View>
     
    <Animated.Text
-   style={{marginTop:18,fontSize:10,transform:[{scale:springval}]}}
+   style={{marginTop:18,fontSize:10,transform:[{scale:SpringVal}]}}
    >
        What's up
    </Animated.Text>
    <Animated.Text
-   style={{height:100,margin:8,fontSize:15,transform:[{rotate:spinvalue}]}}
+   style={{height:100,margin:8,fontSize:15,transform:[{rotate:SpinValue}]}}
    >
        Welcome here !!
    </Animated.Text>
